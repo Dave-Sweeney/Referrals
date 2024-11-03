@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[MAGELLAN_NOTE]
+(
+	[id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+	[referral_id] INT NOT NULL,
+	[note] VARCHAR(1000) NOT NULL,
+	[author] VARCHAR(100) NOT NULL,
+	[note_date] DATE NOT NULL,
+	[created_datetime] DATETIME2 NOT NULL DEFAULT GETDATE(),
+)

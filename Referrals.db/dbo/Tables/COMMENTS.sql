@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[COMMENTS]
+(
+	[id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [referral_id] NCHAR(10) NOT NULL, 
+    [comment] VARCHAR(2000) NOT NULL, 
+    [created_at_datetime] DATETIME2 NOT NULL DEFAULT GETDATE() 
+)

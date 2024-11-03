@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="df64ae25-094a-4e61-9eca-4a4a8e16d45a" ChangeDateTime="10/16/2024 02:46:57">
+    <Property Name="ElementName" Value="[dbo].[REFERRALS].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[REFERRALS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="15a394c5-d487-43a4-b807-6c48e9af5aaf" ChangeDateTime="10/16/2024 02:49:37">
+    <Property Name="ElementName" Value="[dbo].[PARENTS].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PARENTS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d5548f77-cd35-4f14-a809-4331c9b7a1a7" ChangeDateTime="10/16/2024 02:53:38">
+    <Property Name="ElementName" Value="[dbo].[CHILD].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CHILD]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ef97e9c7-913b-472b-a8fb-2cd06035cdd7" ChangeDateTime="10/16/2024 03:02:57">
+    <Property Name="ElementName" Value="[dbo].[COMMENTS].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[COMMENTS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0c426124-363b-4a9e-9634-2a3cdc597ac2" ChangeDateTime="10/16/2024 03:03:21">
+    <Property Name="ElementName" Value="[dbo].[COMMENTS].[referral_number]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[COMMENTS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="referral_id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="68e89fe7-51de-4289-9377-6726016c7a41" ChangeDateTime="10/16/2024 03:23:23">
+    <Property Name="ElementName" Value="[dbo].[REFERRALS].[is_closed]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[REFERRALS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="closed_datetime" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f4d24238-f431-4dd1-8188-a337582da6e1" ChangeDateTime="10/16/2024 03:23:45">
+    <Property Name="ElementName" Value="[dbo].[REFERRALS].[is_closed_magellan]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[REFERRALS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="magellan_closed_datetime" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1783c26f-11fa-4191-a13c-b0872b7ba834" ChangeDateTime="10/16/2024 04:24:58">
+    <Property Name="ElementName" Value="[dbo].[COMMENTS].[datetime]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[COMMENTS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="created_at_datetime" />
+  </Operation>
+</Operations>
