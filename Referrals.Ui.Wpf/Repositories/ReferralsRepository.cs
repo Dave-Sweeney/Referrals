@@ -46,19 +46,29 @@ public class ReferralsRepository : IReferralsRepository
         throw new NotImplementedException();
     }
 
-    public async Task<IEnumerable<Referral>> GetReferralsAsync()
+    public Task<IEnumerable<Referral>> GetReferralsAsync()
     {
         // Get referrals from the database
-        var sql = @"SELECT first_name + ' ' + last_name AS Name
-    , created_datetime AS Date
-    , comment AS AdditionalInfo
-FROM PARENTS";
+        var sql = @"
+            SELECT 
+                first_name + ' ' + last_name AS Name
+                , created_datetime AS Date
+                , comment AS AdditionalInfo
+            FROM PARENTS";
 
         using var _dbConnection = _factory.CreateConnection();
+        
+        try
+        {
+            var referrals = _dbConnection.Query<Referral>(sql);
+            return Task.FromResult(referrals);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
 
-        var referrals = _dbConnection.Query<Referral>(sql);
-
-        return referrals;
+        return Task.FromResult(Enumerable.Empty<Referral>());
     }
 
     public Task UpdateReferralAsync(Referral referral)
