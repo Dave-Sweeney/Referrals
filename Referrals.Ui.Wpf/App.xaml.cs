@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Referrals.Ui.Wpf.Configuration;
 using Referrals.Ui.Wpf.Repositories;
+using Referrals.Ui.Wpf.ViewModels;
 using System.Data;
 using System.IO;
 using System.Windows;

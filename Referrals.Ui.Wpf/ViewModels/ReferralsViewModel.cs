@@ -1,11 +1,26 @@
-﻿using Referrals.Ui.Wpf.Repositories;
+﻿using Referrals.Ui.Wpf.Models;
+using Referrals.Ui.Wpf.Repositories;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 
-namespace Referrals.Ui.Wpf.ViewModels;
-
-public class ReferralsViewModel
+namespace Referrals.Ui.Wpf.ViewModels
 {
-    public IEnumerable<ReferralViewModel> Referrals { get; set; } = [];
+    public class ReferralsViewModel
+    {
+        private readonly IReferralsRepository _referralsRepository;
+        public ObservableCollection<Referral> Referrals { get; set; } = [];
 
+
+        public ReferralsViewModel(IReferralsRepository referralsRepository)
+        {
+            _referralsRepository = referralsRepository;
+
+            var referrals = _referralsRepository.GetReferralsAsync().Result;
+
+            foreach (var referral in referrals)
+            {
+                Referrals.Add(referral);
+            }
+
+        }
+    }
 }

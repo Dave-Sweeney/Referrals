@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Referrals.Ui.Wpf.Configuration;
+using Referrals.Ui.Wpf.Models;
 using System.Data;
 
 namespace Referrals.Ui.Wpf.Repositories;
