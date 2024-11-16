@@ -1,11 +1,4 @@
-﻿using Referrals.Library.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Referrals.Ui.Winforms;
+﻿namespace Referrals.Ui.Winforms;
 
 public class ReferralViewModel
 {

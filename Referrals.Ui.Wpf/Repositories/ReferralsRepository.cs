@@ -1,4 +1,5 @@
-﻿using Referrals.Ui.Wpf.Configuration;
+﻿using Dapper;
+using Referrals.Ui.Wpf.Configuration;
 using System.Data;
 
 namespace Referrals.Ui.Wpf.Repositories;
@@ -17,9 +18,6 @@ public class ReferralsRepository : IReferralsRepository
     {
         using var _dbConnection = _factory.CreateConnection();
         
-        if (_dbConnection.State == ConnectionState.Closed)
-            _dbConnection.Open();
-
         var command = _dbConnection.CreateCommand();
         command.CommandText = @"
             CREATE TABLE IF NOT EXISTS DUMMY_TABLE (
@@ -48,7 +46,7 @@ public class ReferralsRepository : IReferralsRepository
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<Referral>> GetReferralsAsync()
+    public async Task<IEnumerable<Referral>> GetReferralsAsync()
     {
         // Get referrals from the database
         var sql = @"SELECT first_name + ' ' + last_name AS Name
@@ -57,25 +55,10 @@ public class ReferralsRepository : IReferralsRepository
 FROM PARENTS";
 
         using var _dbConnection = _factory.CreateConnection();
-        if (_dbConnection.State == ConnectionState.Closed)
-            _dbConnection.Open();
 
-        var command = _dbConnection.CreateCommand();
-        command.CommandText = sql;
+        var referrals = _dbConnection.Query<Referral>(sql);
 
-        var reader = command.ExecuteReader();
-        var referrals = new List<Referral>();
-        while (reader.Read())
-        {
-            referrals.Add(new Referral
-            {
-                Name = reader["Name"].ToString(),
-                Date = (DateTime)reader["Date"],
-                AdditionalInfo = reader["AdditionalInfo"].ToString()
-            });
-        }
-
-        return Task.FromResult(referrals.AsEnumerable());
+        return referrals;
     }
 
     public Task UpdateReferralAsync(Referral referral)
