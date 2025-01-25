@@ -39,34 +39,7 @@ public class FileReader : IFileReader
             while (dataReader.Read())
             {
                 var referralId = dataReader.GetString(4);
-                _logger.LogInformation($"Processing referral {referralId}");
-
-                //var area = dataReader.GetNullableString(0);
-                //var region = dataReader.GetNullableString(1);
-                //var subRegion = dataReader.GetNullableString(2);
-                //var unit = dataReader.GetNullableString(3);
-                //// referralId
-                //var searchZipCode = dataReader.GetNullableString(5);
-                //var child = dataReader.GetString(6);
-                //var childAge = dataReader.GetNullableInt32(7);
-                //var parent = dataReader.GetString(8);
-                //var phone = dataReader.GetString(9);
-                //var email = dataReader.GetString(10);
-                //var address = dataReader.GetNullableString(11);
-                //var address2 = dataReader.GetNullableString(12);
-                //var city = dataReader.GetNullableString(13);
-                //var state = dataReader.GetNullableString(14);
-                //var comments = dataReader.GetNullableString(15);
-                //var cadet = dataReader.GetString(16);
-                //var volunteer = dataReader.GetString(17);
-                //var referralDate = dataReader.GetDateTime(18);
-                //var contactStatus = dataReader.GetNullableString(19);
-                //var contactStatusDate = dataReader.GetNullableDateTime(20);
-                //var contactStatusNotes = dataReader.GetNullableString(21);
-                //var closedStatus = dataReader.GetNullableString(22);
-                //var closedDate = dataReader.GetNullableDateTime(23);
-                //var closedNotes = dataReader.GetNullableString(24);
-                //var closedReason = dataReader.GetNullableString(25);
+                _logger.LogInformation("Processing referral {ReferralId}", referralId);
 
                 var referral = new ReferralDto
                 {

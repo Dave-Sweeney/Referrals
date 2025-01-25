@@ -9,14 +9,14 @@ using Referrals.DataProcessing.Repositories;
 
 namespace Referrals.DataProcessing;
 
-public class Function1
+public class ReferralsBlobTrigger
 {
-    private readonly ILogger<Function1> _logger;
+    private readonly ILogger<ReferralsBlobTrigger> _logger;
     private readonly IFileReader _reader;
     private readonly IReferralsRepository _referralsRepository;
 
-    public Function1(
-        ILogger<Function1> logger, 
+    public ReferralsBlobTrigger(
+        ILogger<ReferralsBlobTrigger> logger, 
         IFileReader reader,
         IReferralsRepository referralsRepository)
     {
@@ -25,13 +25,13 @@ public class Function1
         _referralsRepository = referralsRepository;
     }
 
-    [Function(nameof(Function1))]
+    [Function(nameof(ReferralsBlobTrigger))]
     public async Task Run([BlobTrigger("referrals/{name}", Connection = "")] Stream stream, string fileName)
     {
         try
         {
             var referralsDto = await _reader.ReadFileAsync(stream);
-            List<Referral> referrals = new List<Referral>();
+            List<Referral> referrals = [];
 
             var content = new StringBuilder();
 
@@ -43,11 +43,11 @@ public class Function1
 
                 content.AppendLine($"ReferralId: {referralDto.ReferralId}");
             }
-            _logger.LogInformation($"C# Blob trigger function Processed blob\n Name: {fileName} \n Data: {content.ToString()}");
+            _logger.LogInformation("C# Blob trigger function Processed blob\n Name: {FileName} \n Data: {Content}", fileName, content.ToString());
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error processing file");
+            _logger.LogError(ex, "Error processing file.\n{Message}", ex.Message);
         }
     }
 }
