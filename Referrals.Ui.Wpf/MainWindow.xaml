@@ -7,9 +7,8 @@
         mc:Ignorable="d"
         Title="Referrals" Height="450" Width="800" WindowStyle="SingleBorderWindow">
 
-
-    
-    <Grid Background="{DynamicResource ResourceKey=BackdropBrush}">
+  
+  <!--<Grid Background="{DynamicResource ResourceKey=BackdropBrush}">
         <Grid.ContextMenu>
             <ContextMenu>
                 <MenuItem Header="Dark Theme" Click="DarkTheme_Click"/>
@@ -30,7 +29,7 @@
         <Label Grid.Row="0" Grid.Column="0" Content="Search:" Foreground="{DynamicResource ForegroundBrush}"/>
         <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Background="{DynamicResource ResourceKey=BackdropBrush}" Foreground="{DynamicResource ResourceKey=ForegroundBrush}"/>
 
-        <!-- Custom Title Bar --><!--
+        --><!-- Custom Title Bar --><!--
         <Border Background="{DynamicResource BackgroundBrush}" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
             <DockPanel >
                 <TextBlock Text="My Application" VerticalAlignment="Center" Margin="10" Foreground="{DynamicResource ForegroundBrush}"/>
@@ -38,10 +37,10 @@
             </DockPanel>
         </Border>-->
         
-        <!-- Left Scroll Button -->
+        <!-- Left Scroll Button --><!--
         <Button Grid.Row="1" Grid.Column="0" Content="&#x25C0;" FontSize="24" Width="50" Height="50" VerticalAlignment="Center" Click="ScrollLeft_Click" Opacity="0.5"/>
 
-        <!-- Scrollable List of Cards -->
+        --><!-- Scrollable List of Cards --><!--
         <ScrollViewer Grid.Row ="1" Grid.Column="1" x:Name="CardScrollViewer" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
             <ItemsControl ItemsSource="{Binding Referrals}" x:Name="CardPanel">
                 <ItemsControl.ItemsPanel>
@@ -52,19 +51,31 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border Width="150" Height="200" Background="{DynamicResource BackgroundBrush}" Margin="10" CornerRadius="10" MouseEnter="Card_MouseEnter" MouseLeave="Card_MouseLeave" MouseLeftButtonDown="Card_MouseClick">
-                            <StackPanel>
-                                <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="{DynamicResource ForegroundBrush}"/>
-                                <TextBlock Text="{Binding Date}" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" Foreground="{DynamicResource ForegroundBrush}" />
-                                <TextBlock Text="{Binding AdditionalInfo}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource ForegroundBrush}" Visibility="Collapsed" x:Name="AdditionalInfoTextBlock"/>
-                            </StackPanel>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                  <ColumnDefinition Width="Auto"/>
+                                  <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                              
+                                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding ParentLastName}" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" Foreground="{DynamicResource ForegroundBrush}"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding ParentFirstName}" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Margin="10 0 0 0" Foreground="{DynamicResource ForegroundBrush}"/>
+                                <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding DaysOpen}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="36" Margin="10 0 0 0" Style="{DynamicResource DaysOpenTextStyle}"/>
+                                <TextBlock Grid.Row="3" Grid.Column="0" Text="Referral Date: " HorizontalAlignment="Center" VerticalAlignment="Bottom" FontStyle="Italic" Foreground="{DynamicResource ForegroundBrush}" Margin="2 10" />
+                                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding ReferralDate, StringFormat='yyyy-MM-dd'}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontStyle="Italic" Foreground="{DynamicResource ForegroundBrush}" Margin="5 10" />
+                            </Grid>
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
 
-        <!-- Right Scroll Button -->
+        --><!-- Right Scroll Button --><!--
         <Button Grid.Row="1" Grid.Column="2" Content="&#x25B6;" FontSize="24" Width="50" Height="50" VerticalAlignment="Center" Click="ScrollRight_Click" Opacity="0.5"/>
-    </Grid>
-    
+    </Grid>-->
 </Window>

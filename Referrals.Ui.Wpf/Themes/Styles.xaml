@@ -1,0 +1,9 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:Referrals.Ui.Wpf.Converters">
+  <converters:DaysOpenToColorConverter x:Key="DaysOpenToColorConverter"/>
+
+  <Style x:Key="DaysOpenTextStyle" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="{Binding DaysOpen, Converter={StaticResource DaysOpenToColorConverter}}"/>
+  </Style>
+</ResourceDictionary>

@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Referrals.Ui.Wpf.ViewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Referrals.Ui.Wpf.Models;
 
 namespace Referrals.Ui.Wpf
 {
@@ -20,7 +8,7 @@ namespace Referrals.Ui.Wpf
     /// </summary>
     public partial class CardDetailsWindow : Window
     {
-        public CardDetailsWindow(Referral referral)
+        public CardDetailsWindow(ReferralViewModel referral)
         {
             InitializeComponent();
             this.DataContext = referral;
